@@ -1,6 +1,10 @@
 <template>
   <main v-if="!loading">
     <DataTitle :text="title" :dataDate="dataDate" />
+
+    <DataBoxes :stats="stats" />
+
+    <CountrySelect :countries="countries" />
   </main>
 
   <main class="flex flex-col align-center justify-center text-center" v-else>
@@ -15,11 +19,15 @@
 <script>
 
 import DataTitle from '@/components/DataTitle'
+import DataBoxes from '@/components/DataBoxes'
+import CountrySelect from '@/components/CountrySelect'
 
 export default {
   name: 'Home',
   components: {
     DataTitle,
+    DataBoxes,
+    CountrySelect,
   },
   //Create placeholders to store the data from the API
   data(){
@@ -44,9 +52,9 @@ export default {
   //Runs as soon as the site is loaded
   async created(){
     const data = await this.fetchCovidData()
-  
+
     this.dataDate = data.date
-    this.stats = data.global
+    this.stats = data.Global
     this.countries = data.countries
     this.loading = false
   }
