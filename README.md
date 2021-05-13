@@ -1,6 +1,6 @@
 # covid-tracker
 
-##Created a Simple Covid Tracking Web app that makes calls to a covid data API to display in a simple way.
+Created a Simple Covid Tracking Web app that makes calls to a covid data API to display in a simple way.
 
 ## Project setup
 ```
